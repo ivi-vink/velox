@@ -14,7 +14,7 @@ client_protocol = $(foreach extension,$(1),protocol/$(extension)-client-protocol
 define protocol_rules
 
 $(dir)/$$(basename $$(notdir $(1)))-protocol.c: $(1)
-	$$(call quiet,GEN,$(WAYLAND_SCANNER)) private-code < $$< > $$@
+	$$(call quiet,GEN,$(WAYLAND_SCANNER)) public-code < $$< > $$@
 $(dir)/$$(basename $$(notdir $(1)))-client-protocol.h: $(1)
 	$$(call quiet,GEN,$(WAYLAND_SCANNER)) client-header < $$< > $$@
 $(dir)/$$(basename $$(notdir $(1)))-server-protocol.h: $(1)
